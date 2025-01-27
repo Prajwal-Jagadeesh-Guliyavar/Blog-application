@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Post
 #from django.http import HttpResponse
 
 # adding dummy data temproarily
@@ -20,7 +21,7 @@ posts=[
 
 def home(request):
     context={
-        'posts':posts
+        'posts':Post.objects.all()
     }
     return render(request, 'blog/home.html',context)
 
