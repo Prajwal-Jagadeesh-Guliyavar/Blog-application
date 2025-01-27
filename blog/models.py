@@ -11,3 +11,6 @@ class Post(models.Model):
     #the above statement will let the post have the date and time when published but it cannot be modified after the creation of the future
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
