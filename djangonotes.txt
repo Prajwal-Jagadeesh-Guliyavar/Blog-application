@@ -1,0 +1,45 @@
+djnago project :
+
+setup the environment, setup the app
+create the urls.py in the app
+update the settings in the project directory just after creating the app
+http requests and rendering in the views
+creating the view functions/classes
+creating the templates directory that has all the html templates 'app/templates/app/files.html'r
+writing the DTL codes in the templates for the modification of the templates
+creation of the base template and declaring the block : that allows all other child templates to inherit the template features of the base templates
+add some dummy data for the testing for the time being
+then add the bootstrap starter page for the ease of usage of the bootstrap classes to the base templates
+
+bootstrap 5.3 didnt work for me so i tried 4.0 instead
+
+create a static cirectory for the css files used in there 'app/static/app/file.css'
+load those static files to the base template
+remember to use the DTL frequently
+design the html part of the home page as wished with the help of the bootstrap classes
+add the article structure for the home page to seperate each posts from each other
+check for teh hardcoded urls in the templates and correct them with the DTL
+
+creating the superuser:
+makemigrations command , if no changes are seen then 
+migrate command will migrate all the usefull files
+then the command createsuperuser; this will create a query once the name and the password is entered
+django handles the hashing of the password.
+
+to create the post and not rely on the dummy data Django has the ORM- Object Relational Mapper
+using the sqlite3 for the development, and postgresql for the production
+    database structures as -> classes a.k.a models
+    including the django.contrib.auth.models lets users have the authorities over their posts and this is a many to one model
+
+runnig the 'makemigrations' will create a model that can execute those commands and when 'migrate' is run the file is written and saved
+by running the 'sqlmigrate' the sql codebase table is created that helps to write the query into the database {though you dontknow shit about sql}
+Shell operations to look at the readable SQL queries
+the data created in the shell is the actual data and we use it as the actual data insteadof teh dummy data
+
+create the user app to handle the frontend of the user login modify and logout page
+!alway remember to register the created app in the settings.py of the project folder!
+instead of creating one's  own form django has the UserCreationForm use it to create a view with the render request
+create the template that is the extension of the base templates add the csrf_token for the security and the form structure
+form structure for the sign-in and sign-up
+add the url to the url patterns of the register templates
+take care of the HTTP request of POST for the form submission 
