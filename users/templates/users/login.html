@@ -5,17 +5,17 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Come on Bruv..</legend>
+                <legend class="border-bottom mb-4">Welcome again</legend>
                 {{form|crispy}}
             </fieldset>
             <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Sign-UP</button>
+                <button class="btn btn-outline-info" type="submit">Sign-IN</button>
             </div>
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                already have an Account..?
-                <a class="ml-2" href="{% url 'login' %}">Sign-IN</a>
+                You need an Account bruv..?
+                <a class="ml-2" href="{% url 'register' %}">Sign-IN</a>
             </small>
         </div>
     </div>
