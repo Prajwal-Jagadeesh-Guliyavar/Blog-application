@@ -1,0 +1,76 @@
+# General
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+*.swo
+*.swn
+
+# Virtual Environment
+venv/
+.env
+*.env
+
+# Django specific
+*.log
+local_settings.py
+settings_local.py
+
+# Database
+*.sqlite3
+db.sqlite3
+
+# Static & Media files
+/static/
+/media/
+
+# Migrations (optional, but useful to ignore auto-generated files)
+*/migrations/__pycache__/
+*/migrations/*.pyc
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.iml
+
+# JetBrains
+*.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+.cache
+test-results/
+
+# Pipenv
+Pipfile
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# Heroku
+*.log
+Procfile
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Pytest
+.pytest_cache/
+
+# Celery
+celerybeat-schedule
+
+# VS Code workspace settings
+.vscode/settings.json

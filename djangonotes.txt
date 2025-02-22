@@ -38,8 +38,32 @@ the data created in the shell is the actual data and we use it as the actual dat
 
 create the user app to handle the frontend of the user login modify and logout page
 !alway remember to register the created app in the settings.py of the project folder!
+
 instead of creating one's  own form django has the UserCreationForm use it to create a view with the render request
 create the template that is the extension of the base templates add the csrf_token for the security and the form structure
 form structure for the sign-in and sign-up
 add the url to the url patterns of the register templates
 take care of the HTTP request of POST for the form submission 
+insert the condition blocks for the POST request and the flash message and save the credential in the form 
+create a forms handling python file that has the views and the models of the UserCreationForm {class meta here gives the model namespace.}
+to style the form properly and present the error messages easly in the noticable colurs we use another app in the django called CRISPY FORMS, add the CRISPY_FORMS to the list of the installed apps.
+!!! make sure to check the path of the crispy forms during the installation {may require manually adding the paths in the settings.}
+
+add the path to the url patterns the urls of the login, logout and create the login and logout htmls
+while working with the logout form it may throw a status code of 405 if using the djang versions that are higher than 4 or 5 
+{ 
+    because, 
+    unlike the earlier versions from the django the logout endpoint can't be used by the urls method by the GET
+    in the current versions the endpoint can be accessed by the POST method
+    it can be fixed by including the view of the logout itself and changing the path in the project/urls.py
+    
+    }
+change the nav bar in the base template accordingly
+to add the profile 
+        create a profile view in the views file of the users
+        add the profile button to the nav bar
+        create a html template
+        and specify the path in the url patterns of the project directory
+        add the decorators to the profile view for the additional functionalities
+        to avoid or correct the search path conflict add the path directly to the settings file of the project
+add the models onetoone so that when the users delete their account or has been deleted then the profile shall get deleted with their account
