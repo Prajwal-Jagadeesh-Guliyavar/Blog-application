@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 #from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth import logout
 
 def register(request):
@@ -23,4 +23,12 @@ def logout_view(request):
 
 @login_required
 def profile(request):
+    u_form = UserUpdateForm()
+    p_form = ProfileUpdateForm()
+
+    context = {
+        'u_form' : u_form,
+        'p_form' : p_form
+    }
+
     return render(request, 'users/profile.html')
