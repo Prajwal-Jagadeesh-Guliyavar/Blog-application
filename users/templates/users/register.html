@@ -1,71 +1,33 @@
 {% extends "blog/base.html"%}
 {% load crispy_forms_tags %}
-{% block content%}
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-lg-6">
-                <div class="content-section auth-card shadow-lg p-5">
-                    <div class="text-center mb-4">
-                        <h2 class="mb-3" style="color: #5f788a;">Join Today</h2>
-                        <p class="text-muted">Start your journey with us</p>
-                    </div>
-                    <form method="POST">
-                        {% csrf_token %}
-                        <div class="form-group">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-user"></i>
-                                    </span>
-                                </div>
-                                <input type="text" name="username" class="form-control" placeholder="Username" required>
-                            </div>
 
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-envelope"></i>
-                                    </span>
-                                </div>
-                                <input type="email" name="email" class="form-control" placeholder="Email" required>
-                            </div>
-
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
-                                </div>
-                                <input type="password" name="password1" class="form-control" placeholder="Password" required>
-                            </div>
-
-                            <div class="input-group mb-4">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
-                                </div>
-                                <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required>
-                            </div>
-                        </div>
-
-                        <button class="btn btn-primary btn-block py-2 mb-3" type="submit">
-                            <i class="fas fa-user-plus mr-2"></i>Create Account
-                        </button>
-
-                        <div class="text-center text-muted mb-3">
-                            <small>By registering you agree to our terms</small>
-                        </div>
-
-                        <div class="border-top pt-3 text-center">
-                            <small class="text-muted">
-                                Already have an account?
-                                <a href="{% url 'login' %}" class="text-primary">Sign In</a>
-                            </small>
-                        </div>
-                    </form>
-                </div>
+{% block content_layout %}
+    <div class="col-md-10 col-lg-8 mx-auto">
+        <div class="content-section auth-card p-5">
+            <div class="text-center mb-4">
+                <h2 class="mb-3" style="color: #5f788a;">Join Our Community</h2>
+                <p class="text-muted">Create your account to get started</p>
             </div>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form|crispy }}
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block py-2 mb-4 mt-4" type="submit">
+                        <i class="fas fa-user-plus mr-2"></i>Sign Up
+                    </button>
+                </div>
+
+                <div class="border-top pt-3 text-center">
+                    <small class="text-muted">
+                        Already have an account?
+                        <a href="{% url 'login' %}" class="ml-2" style="color: #5f788a; font-weight: 500;">Sign In</a>
+                    </small>
+                </div>
+            </form>
         </div>
     </div>
-{% endblock content%}
+{% endblock %}
