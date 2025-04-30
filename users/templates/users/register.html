@@ -1,22 +1,71 @@
 {% extends "blog/base.html"%}
 {% load crispy_forms_tags %}
 {% block content%}
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Come on Bruv..</legend>
-                {{form|crispy}}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Sign-UP</button>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="content-section auth-card shadow-lg p-5">
+                    <div class="text-center mb-4">
+                        <h2 class="mb-3" style="color: #5f788a;">Join Today</h2>
+                        <p class="text-muted">Start your journey with us</p>
+                    </div>
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                </div>
+                                <input type="text" name="username" class="form-control" placeholder="Username" required>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-envelope"></i>
+                                    </span>
+                                </div>
+                                <input type="email" name="email" class="form-control" placeholder="Email" required>
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="password1" class="form-control" placeholder="Password" required>
+                            </div>
+
+                            <div class="input-group mb-4">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                </div>
+                                <input type="password" name="password2" class="form-control" placeholder="Confirm Password" required>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-primary btn-block py-2 mb-3" type="submit">
+                            <i class="fas fa-user-plus mr-2"></i>Create Account
+                        </button>
+
+                        <div class="text-center text-muted mb-3">
+                            <small>By registering you agree to our terms</small>
+                        </div>
+
+                        <div class="border-top pt-3 text-center">
+                            <small class="text-muted">
+                                Already have an account?
+                                <a href="{% url 'login' %}" class="text-primary">Sign In</a>
+                            </small>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                already have an Account..?
-                <a class="ml-2" href="{% url 'login' %}">Sign-IN</a>
-            </small>
         </div>
     </div>
-{%endblock content%}
+{% endblock content%}
