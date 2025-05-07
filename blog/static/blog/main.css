@@ -32,7 +32,7 @@ ul {
     background: #ffffff;
     padding: 10px 20px;
     border: 1px solid #dddddd;
-    border-radius: 3px;
+    border-radius: 20px;
     margin-bottom: 20px;
 }
 
@@ -52,6 +52,7 @@ a.article-title:hover {
 .article-img {
     height: 65px;
     width: 65px;
+    margin: auto;
     margin-right: 16px;
 }
 
@@ -83,96 +84,21 @@ a.article-title:hover {
     font-size: 2.5rem;
 }
 
-
+/* Auth Card Styles */
 .auth-card {
     max-width: 500px;
     margin: 0 auto;
-    border: none;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    margin-top: 2rem;
     background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.09);
+    border: none;
     transition: transform 0.3s ease;
 }
 
 .auth-card:hover {
     transform: translateY(-5px);
-}
-
-.input-group-text {
-    background: #f8f9fa;
-    border: 1px solid #e9ecef;
-    border-right: none;
-}
-
-.form-control {
-    border-left: none;
-    padding: 1rem;
-}
-
-.form-control:focus {
-    box-shadow: none;
-    border-color: #e9ecef;
-}
-
-.btn-primary {
-    background: #5f788a;
-    border: none;
-    padding: 12px 0;
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background: #4a606e;
-    transform: translateY(-2px);
-}
-
-@media (max-width: 768px) {
-    .auth-card {
-        margin: 20px;
-        padding: 2rem !important;
-    }
-}
-
-.auth-card {
-    background: #ffffff;
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: none;
-}
-
-.form-control {
-    padding: 12px 15px;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-}
-
-.form-control:focus {
-    border-color: #5f788a;
-    box-shadow: 0 0 0 0.2rem rgba(95, 120, 138, 0.1);
-}
-
-.btn-primary {
-    background-color: #5f788a;
-    border: none;
-    padding: 12px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: #4a606e;
-    transform: translateY(-2px);
-}
-/* Auth Card Styles */
-.auth-card {
-    background: #ffffff;
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    border: none;
-    margin-top: 2rem;
 }
 
 /* Form Input Styles */
@@ -194,6 +120,7 @@ a.article-title:hover {
     border: none;
     padding: 12px;
     font-size: 1rem;
+    font-weight: 600;
     transition: all 0.3s ease;
 }
 
@@ -202,9 +129,17 @@ a.article-title:hover {
     transform: translateY(-2px);
 }
 
+/* Input Group Text */
+.input-group-text {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-right: none;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .auth-card {
-        padding: 1.5rem;
+        margin: 20px;
+        padding: 1.5rem !important;
     }
 }

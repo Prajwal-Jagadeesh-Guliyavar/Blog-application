@@ -1,22 +1,33 @@
-{% extends "blog/base.html"%}
+{% extends "blog/base.html" %}
 {% load crispy_forms_tags %}
-{% block content%}
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Welcome again</legend>
-                {{form|crispy}}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-info" type="submit">Sign-IN</button>
+
+{% block content_layout %}
+    <div class="col-md-10 col-lg-8 mx-auto">
+        <div class="content-section auth-card p-5">
+            <div class="text-center mb-4">
+                <h2 class="mb-3" style="color: #5f788a;">Welcome Back!</h2>
+                <p class="text-muted">Sign in to your account</p>
             </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                You need an Account bruv..?
-                <a class="ml-2" href="{% url 'register' %}">Sign-IN</a>
-            </small>
+
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form|crispy }}
+                </div>
+
+                <div class="form-group">
+                    <button class="btn btn-primary btn-block py-2 mb-4 mt-4" type="submit">
+                        <i class="fas fa-sign-in-alt mr-2"></i>Sign In
+                    </button>
+                </div>
+
+                <div class="border-top pt-3 text-center">
+                    <small class="text-muted">
+                        Dont have an account?
+                        <a href="{% url 'register' %}" class="ml-2" style="color: #5f788a; font-weight: 500;">Sign Up</a>
+                    </small>
+                </div>
+            </form>
         </div>
     </div>
-{%endblock content%}
+{% endblock %}
