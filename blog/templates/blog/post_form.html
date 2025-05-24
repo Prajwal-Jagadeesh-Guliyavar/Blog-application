@@ -1,0 +1,143 @@
+{% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content_layout %}
+<style>
+    body {
+        background: linear-gradient(135deg, #6e8efb, #a777e3);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+    }
+
+    .container-wide {
+        width: 100%;
+        max-width: 1400px; /* Or any value you prefer */
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    .auth-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.4);
+        border-radius: 22px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+    }
+
+    .auth-card:hover {
+        transform: scale(1.01);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    }
+
+    .divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .divider .line {
+        height: 1px;
+        width: 40%;
+        background: rgba(0, 0, 0, 0.1);
+        margin: 0 10px;
+    }
+
+    .divider .circle {
+        width: 12px;
+        height: 12px;
+        background-color: #6e8efb;
+        border-radius: 50%;
+        animation: pulse 1.2s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.4); opacity: 0.7; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    .btn-submit {
+        transition: all 0.3s ease;
+        font-weight: 500;
+        font-size: 1.1rem;
+        background-color: #6e8efb;
+        border: none;
+        border-radius: 10px;
+        padding: 12px 24px;
+    }
+
+    .btn-submit:hover {
+        background-color: #5a7ce8;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        border-radius: 12px !important;
+        padding: 14px;
+        font-size: 1rem;
+        box-shadow: none !important;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        border-color: #6e8efb;
+        box-shadow: 0 0 0 0.2rem rgba(110, 142, 251, 0.25) !important;
+    }
+
+    .text-primary {
+        color: #6e8efb;
+    }
+
+    .font-bold {
+        font-weight: 600;
+    }
+
+    .py-5 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+</style>
+
+<div class="container-wide py-5">
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <div class="auth-card p-5 shadow-lg">
+                <div class="text-center mb-4">
+                    <h2 class="mb-2 text-primary">
+                        <i class="fas fa-pen-nib"></i> New Blog Post
+                    </h2>
+                    <p class="text-muted font-bold">Share your story and Inspire 🌍</p>
+                    <div class="divider mb-4">
+                        <span class="line"></span>
+                        <span class="circle"></span>
+                        <span class="line"></span>
+                    </div>
+                </div>
+
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        {{ form|crispy }}
+                    </div>
+
+                    <div class="form-group text-center">
+                        <button class="btn btn-primary btn-block py-2 mt-3 btn-submit" type="submit">
+                            <i class="fas fa-paper-plane mr-2"></i> Publish Blog
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
