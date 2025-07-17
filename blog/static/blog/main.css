@@ -116,7 +116,7 @@ a.article-title:hover {
 
 /* Button Styles */
 .btn-primary {
-    background-color: #5f788a;
+    background-color: #3253d5;
     border: none;
     padding: 12px;
     font-size: 1rem;
@@ -125,7 +125,7 @@ a.article-title:hover {
 }
 
 .btn-primary:hover {
-    background-color: #4a606e;
+    background-color: #3253d5;
     transform: translateY(-2px);
 }
 
